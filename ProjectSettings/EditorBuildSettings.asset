@@ -4,5 +4,23 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/LoadingScene.unity
+    guid: 75a1b5f2db0a1ff4397ae73468552be2
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 9bd3c02afc717954485e06e67acc5381
+  - enabled: 1
+    path: Assets/Scenes/HiLow.unity
+    guid: 20613b60a1f6d3f4b8f65bf47fce91a2
+  - enabled: 1
+    path: Assets/Scenes/BlackJack.unity
+    guid: 558154760dd343b4686df1f2d4832922
+  - enabled: 1
+    path: Assets/Scenes/FiveCard.unity
+    guid: f3e7149333ba1ed45a0e88e8bc8230c1
+  - enabled: 1
+    path: Assets/Scenes/SevenCard.unity
+    guid: 1bfcbaaa377979745b8b2b2115081e83
   m_configObjects: {}

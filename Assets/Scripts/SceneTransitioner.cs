@@ -14,6 +14,8 @@ public class SceneTransitioner : MonoBehaviour {
     private static AsyncOperation operation;
     private static Coroutine routine = null;
 
+    private static int previousSceneIndex;
+
     private void Awake () {
         if (!SceneManager.GetSceneByBuildIndex(0).isLoaded) {
             SceneManager.LoadScene(0);
@@ -37,6 +39,8 @@ public class SceneTransitioner : MonoBehaviour {
             Debug.LogWarning("Scene already loading.");
             return;
         }
+        previousSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        Debug.LogWarning(previousSceneIndex);
         routine = StartCoroutine(LoadSceneAsync(index));
     }
 
@@ -65,11 +69,17 @@ public class SceneTransitioner : MonoBehaviour {
             yield return null;
         } while (!operation.isDone);
 
+        SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(index));
+        Debug.LogWarning("Current: " + SceneManager.GetActiveScene().buildIndex + " Previous: " + previousSceneIndex);
         routine = null;
         operation = null;
     }
 
     public static void Finish() {
         operation.allowSceneActivation = true;
+        if (SceneManager.sceneCount > 2) {
+            SceneManager.UnloadSceneAsync(SceneManager.GetSceneByBuildIndex(previousSceneIndex));
+        }
+        //SceneManager.UnloadSceneAsync(previousSceneIndex);
     }
 }
