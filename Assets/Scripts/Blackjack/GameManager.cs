@@ -124,10 +124,12 @@ public class GameManager : MonoBehaviour {
 
     void BetClicked() {
         Text newBet = betBtn.GetComponentInChildren(typeof(Text)) as Text;
-        int intBet = int.Parse(newBet.text.ToString().Remove(0, 1));
+        int intBet = int.Parse(newBet.text.ToString());
+        Debug.Log("Pot: " + pot + " intBet: " + intBet);
         playerScript.AdjustMoney(-intBet);
         cashText.text = "$" + playerScript.GetMoney().ToString();
         pot += (intBet * 2);
         betsText.text = "Bets: $" + pot.ToString();
+        Debug.Log("Pot: " + pot + " intBet: " + intBet);
     }
 }
