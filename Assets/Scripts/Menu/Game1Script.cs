@@ -8,6 +8,7 @@ public class Game1Script : MonoBehaviour {
     [SerializeField] private Button buttonBlackJack;
     [SerializeField] private Button buttonFiveCard;
     [SerializeField] private Button buttonSevenCard;
+    [SerializeField] private Button buttonQuit;
 
     // Start is called before the first frame update
     void Start () {
@@ -17,11 +18,14 @@ public class Game1Script : MonoBehaviour {
         buttonBlackJack.onClick.AddListener(() => {
             SceneTransitioner.Instance.LoadScene(3);
         });
-        buttonFiveCard.onClick.AddListener(() => {
+        /*buttonFiveCard.onClick.AddListener(() => {
             SceneTransitioner.Instance.LoadScene(4);
         });
         buttonSevenCard.onClick.AddListener(() => {
             SceneTransitioner.Instance.LoadScene(5);
+        });*/
+        buttonQuit.onClick.AddListener(() => {
+            Application.Quit();
         });
     }
 }

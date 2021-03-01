@@ -30,8 +30,8 @@ public class PlayerScript : MonoBehaviour {
         if(cardValue == 1) {
             aceList.Add(hand[cardIndex].GetComponent<CardScript>());
         }
-
-        AceCheck();
+        if (!deckScript.isHilow)
+            AceCheck();
         cardIndex++;
         return handValue;
     }

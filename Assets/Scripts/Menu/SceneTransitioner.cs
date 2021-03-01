@@ -17,8 +17,8 @@ public class SceneTransitioner : MonoBehaviour {
     private static int previousSceneIndex;
 
     private void Awake () {
-        if (!SceneManager.GetSceneByBuildIndex(0).isLoaded) {
-            SceneManager.LoadScene(0);
+        if (!SceneManager.GetSceneByBuildIndex(1).isLoaded) {
+            SceneManager.LoadScene(1);
         }
     }
 
@@ -45,7 +45,7 @@ public class SceneTransitioner : MonoBehaviour {
     }
 
     private static IEnumerator LoadSceneAsync(int index) {
-        while (!SceneManager.GetSceneByBuildIndex(0).isLoaded) {
+        while (!SceneManager.GetSceneByBuildIndex(1).isLoaded) {
             yield return null;
         }
 

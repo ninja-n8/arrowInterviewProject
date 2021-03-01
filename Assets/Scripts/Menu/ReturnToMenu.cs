@@ -8,7 +8,7 @@ public class ReturnToMenu : MonoBehaviour {
     // Start is called before the first frame update
     void Start () {
         buttonReturn.onClick.AddListener(() => {
-            SceneTransitioner.Instance.LoadScene(1);
+            SceneTransitioner.Instance.LoadScene(0);
         });
     }
 }

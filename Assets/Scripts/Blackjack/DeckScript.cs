@@ -6,6 +6,7 @@ public class DeckScript : MonoBehaviour {
     public Sprite[] cardSprites;
     int[] cardValues = new int[53];
     int currentIndex = 0;
+    public bool isHilow = false;
 
     // Start is called before the first frame update
     void Start () {
@@ -18,8 +19,13 @@ public class DeckScript : MonoBehaviour {
         for (int i = 0; i < cardSprites.Length; i++) {
             num = i;
             num %= 13;
-            if (num > 10 || num == 0) {
-                num = 10;
+            if (!isHilow) {
+                if (num > 10 || num == 0) {
+                    num = 10;
+                }
+            } else {
+                if (num == 0)
+                    num = 13;
             }
             cardValues[i] = num++;
         }
